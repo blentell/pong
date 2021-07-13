@@ -1,6 +1,6 @@
 // Size of the game area (in px)
-const GAME_AREA_WIDTH = 700;
-const GAME_AREA_HEIGHT = 500;
+const GAME_AREA_WIDTH = 1400;
+const GAME_AREA_HEIGHT = 1000;
 
 // Size of the paddles (in px)
 const PADDLE_HEIGHT = 100;
@@ -24,17 +24,17 @@ const playerPaddle = document.querySelector(".player-paddle");
 
 // The y-velocity of the computer paddle
 let computerPaddleYPosition = 0;
-let computerPaddleYVelocity = 7;
+let computerPaddleYVelocity = 10;
 
 // The y-velocity of the player paddle
 let playerPaddleYPosition = 300;
-let playerPaddleYVelocity = 7;
+let playerPaddleYVelocity = 10;
 
 // The ball position and velocity
-let pongBallXPosition = 350;
-let pongBallYPosition = 250;
-let pongBallXVelocity = 4;
-let pongBallYVelocity = 4;
+let pongBallXPosition = 700;
+let pongBallYPosition = 500;
+let pongBallXVelocity = 8;
+let pongBallYVelocity = 8;
 const compScore = document.querySelector("#computerScoreNum");
 const playScore = document.querySelector("#playerScoreNum");
 const watchGame = document.querySelector("#computer-play");
@@ -42,7 +42,7 @@ const playMyself = document.querySelector("#take-Control");
 
 document.addEventListener("keydown", function (event) {
 	console.log(event);
-	if (event.code == "KeyW" || playerPaddleYPosition >= 400) {
+	if (event.code == "KeyW" || playerPaddleYPosition >= 900) {
 		playerPaddleYPosition = playerPaddleYPosition - 10;
 		playerPaddle.style.top = `${playerPaddleYPosition}px`;
 	}
@@ -50,7 +50,7 @@ document.addEventListener("keydown", function (event) {
 		playerPaddleYPosition = playerPaddleYPosition + 10;
 		playerPaddle.style.top = `${playerPaddleYPosition}px`;
 	}
-	if (event.code == "ArrowUp" || computerPaddleYPosition >= 400) {
+	if (event.code == "ArrowUp" || computerPaddleYPosition >= 900) {
 		computerPaddleYPosition = computerPaddleYPosition - 10;
 		computerPaddle.style.top = `${computerPaddleYPosition}px`;
 	}
@@ -59,6 +59,10 @@ document.addEventListener("keydown", function (event) {
 		computerPaddle.style.top = `${computerPaddleYPosition}px`;
 	}
 });
+
+function go1() {
+	pongBall.style = "#flash";
+}
 function reloadPage() {
 	window.location.reload();
 }
@@ -87,7 +91,7 @@ function update() {
 	computerPaddleYPosition = computerPaddleYPosition + computerPaddleYVelocity;
 
 	// Apply the y-position
-	if (computerPaddleYPosition <= 0 || computerPaddleYPosition >= 400) {
+	if (computerPaddleYPosition <= 0 || computerPaddleYPosition >= 900) {
 		computerPaddleYVelocity = computerPaddleYVelocity * -1;
 	}
 	computerPaddle.style.top = `${computerPaddleYPosition}px`;
@@ -98,21 +102,21 @@ function update() {
 	pongBall.style.left = `${pongBallXPosition}px`;
 
 	// If the ball goes past the game area
-	if (pongBallXPosition > 690) {
-		pongBallXPosition = 350;
-		pongBallYPosition = 250;
+	if (pongBallXPosition > 1390) {
+		pongBallXPosition = 700;
+		pongBallYPosition = 500;
 		playerScore++;
 		playScore.innerText = playerScore;
-		pongBallXVelocity = -4;
-		pongBallYVelocity = -4;
+		pongBallXVelocity = -8;
+		pongBallYVelocity = -8;
 	}
 	if (pongBallXPosition < -10) {
-		pongBallXPosition = 350;
-		pongBallYPosition = 250;
+		pongBallXPosition = 700;
+		pongBallYPosition = 500;
 		computerScore++;
 		compScore.innerText = computerScore;
-		pongBallXVelocity = 4;
-		pongBallYVelocity = 4;
+		pongBallXVelocity = 8;
+		pongBallYVelocity = 8;
 	}
 	// Make the ball bounce off player Paddle
 	if (
@@ -121,27 +125,31 @@ function update() {
 		pongBallYPosition <= playerPaddleYPosition + 100
 	) {
 		pongBallXVelocity = pongBallXVelocity * -1;
+		go1();
 	}
 	// Make the ball bounce off computer Paddle
 	if (
-		pongBallXPosition >= 660 &&
+		pongBallXPosition >= 1360 &&
 		pongBallYPosition >= computerPaddleYPosition &&
 		pongBallYPosition <= computerPaddleYPosition + 100
 	) {
 		pongBallXVelocity = pongBallXVelocity * -1;
+		go1();
 	}
 	pongBall.style.top = `${pongBallYPosition}px`;
 	// Make the ball bounce off the top and bottom
-	if (pongBallYPosition >= 480) {
+	if (pongBallYPosition >= 980) {
 		pongBallYVelocity = pongBallYVelocity * -1;
+		go1();
 	}
 	if (pongBallYPosition <= 0) {
 		pongBallYVelocity = pongBallYVelocity * -1;
+		go1();
 	}
 
 	playerPaddleYPosition = playerPaddleYPosition + playerPaddleYVelocity;
 	playerPaddle.style.top = `${playerPaddleYPosition}px`;
-	if (playerPaddleYPosition <= 0 || playerPaddleYPosition >= 400) {
+	if (playerPaddleYPosition <= 0 || playerPaddleYPosition >= 900) {
 		playerPaddleYVelocity = playerPaddleYVelocity * -1;
 	}
 }
@@ -165,21 +173,21 @@ function takeControl() {
 	pongBall.style.left = `${pongBallXPosition}px`;
 
 	// If the ball goes past the game area
-	if (pongBallXPosition > 690) {
-		pongBallXPosition = 350;
-		pongBallYPosition = 250;
+	if (pongBallXPosition > 1390) {
+		pongBallXPosition = 700;
+		pongBallYPosition = 500;
 		playerScore++;
 		playScore.innerText = playerScore;
-		pongBallXVelocity = -4;
-		pongBallYVelocity = -4;
+		pongBallXVelocity = -8;
+		pongBallYVelocity = -8;
 	}
 	if (pongBallXPosition < -10) {
-		pongBallXPosition = 350;
-		pongBallYPosition = 250;
+		pongBallXPosition = 700;
+		pongBallYPosition = 500;
 		computerScore++;
 		compScore.innerText = computerScore;
-		pongBallXVelocity = 4;
-		pongBallYVelocity = 4;
+		pongBallXVelocity = 8;
+		pongBallYVelocity = 8;
 	}
 	// Make the ball bounce off player Paddle
 	if (
@@ -188,22 +196,26 @@ function takeControl() {
 		pongBallYPosition <= playerPaddleYPosition + 100
 	) {
 		pongBallXVelocity = pongBallXVelocity * -1;
+		go1();
 	}
 	// Make the ball bounce off computer Paddle
 	if (
-		pongBallXPosition >= 660 &&
+		pongBallXPosition >= 1360 &&
 		pongBallYPosition >= computerPaddleYPosition &&
 		pongBallYPosition <= computerPaddleYPosition + 100
 	) {
 		pongBallXVelocity = pongBallXVelocity * -1;
+		go1();
 	}
 	pongBall.style.top = `${pongBallYPosition}px`;
 	// Make the ball bounce off the top and bottom
-	if (pongBallYPosition >= 480) {
+	if (pongBallYPosition >= 980) {
 		pongBallYVelocity = pongBallYVelocity * -1;
+		go1();
 	}
 	if (pongBallYPosition <= 0) {
 		pongBallYVelocity = pongBallYVelocity * -1;
+		go1();
 	}
 	// Move the player paddle
 	playerPaddle.style.top = `${playerPaddleYPosition}px`;

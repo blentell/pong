@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pong</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="game-area">
-        <div id='buttons'><button id="computer-play">Just Watch</button>
-        <button id="take-Control">Take Control</button></div>
-        <div id="score">
-        <div id= 'playerScore'>Player Score: <div id='playerScoreNum'></div>    
-        <div id= 'computerScore'>Computer Score: <div id='computerScoreNum'></div></div></div></div>
-        <div class="paddle player-paddle"></div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pong</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
 
-        <div class="ball"></div>
+	<body>
+		<div class="game-area">
+			<div id="buttons">
+				<button id="computer-play">Just Watch</button>
+				<button id="take-Control">Take Control</button>
+			</div>
+			<div id="score">
+				<div id="playerScore">
+					Player Score:
+					<div id="playerScoreNum"></div>
+					<div id="computerScore">
+						Computer Score:
+						<div id="computerScoreNum"></div>
+					</div>
+				</div>
+			</div>
 
-        <div class="paddle computer-paddle"></div>
-    </div>
+			<div class="paddle player-paddle"></div>
 
-    <script src="main.js"></script>
-</body>
+			<div class="ball"></div>
+
+			<div class="paddle computer-paddle"></div>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
 </html>

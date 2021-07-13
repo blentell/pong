@@ -5,28 +5,29 @@ body {
 	margin: 0;
 	background-color: #333;
 	height: 100vh;
-    
 }
 #buttons {
-    display: flex;
-    width: 200px;
-    justify-content:space-between;
-    align-items: center;
-    align-content: center;
+	display: flex;
+	width: 200px;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
 	text-align: center;
-
+	margin-left: 610px;
+	margin-top: -30px;
+	margin-bottom: 20px;
 }
 .game-area {
-	width: 700px;
-	height: 500px;
+	width: 1400px;
+	height: 1000px;
 	position: relative;
-    background: linear-gradient(gray, gray) no-repeat center/10px 80%;
-    background-color: white;
+	background: linear-gradient(gray, gray) no-repeat center/10px 80%;
+	background-color: lightgrey;
 }
 
 #score {
 	display: flex;
-	width: 700px;
+	width: 1400px;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
@@ -37,25 +38,36 @@ body {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-    
 }
 #computerScore {
 	display: flex;
-	margin-left: 100px;
+	margin-left: 80px;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-    
+}
+
+#flash {
+	background-color: fuchsia;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 30px;
+	animation: fadeIn(slow), fadeOut(10), fadeIn(slow), fadeOut(10);
 }
 #computerScoreNum,
 #playerScoreNum {
 	font-weight: bolder;
-	font-size: 30px;
-    color: red;
-    
+	font-size: 45px;
+	color: red;
+	margin-left: 10px;
+	border: solid 1px black;
+	padding: 10px;
 }
 .ball {
-	background-color: green;
+	background-color: fuchsia;
 	height: 20px;
 	width: 20px;
 	position: absolute;

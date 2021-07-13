@@ -33,8 +33,8 @@ let playerPaddleYVelocity = 10;
 // The ball position and velocity
 let pongBallXPosition = 700;
 let pongBallYPosition = 500;
-let pongBallXVelocity = 8;
-let pongBallYVelocity = 8;
+let pongBallXVelocity = Math.random() * 15;
+let pongBallYVelocity = Math.random() * 15;
 const compScore = document.querySelector("#computerScoreNum");
 const playScore = document.querySelector("#playerScoreNum");
 const watchGame = document.querySelector("#computer-play");
@@ -107,16 +107,16 @@ function update() {
 		pongBallYPosition = 500;
 		playerScore++;
 		playScore.innerText = playerScore;
-		pongBallXVelocity = -8;
-		pongBallYVelocity = -8;
+		pongBallXVelocity = -Math.random() * 15;
+		pongBallYVelocity = -Math.random() * 2;
 	}
 	if (pongBallXPosition < -10) {
 		pongBallXPosition = 700;
 		pongBallYPosition = 500;
 		computerScore++;
 		compScore.innerText = computerScore;
-		pongBallXVelocity = 8;
-		pongBallYVelocity = 8;
+		pongBallXVelocity = Math.random() * 15;
+		pongBallYVelocity = Math.random() * 2;
 	}
 	// Make the ball bounce off player Paddle
 	if (
@@ -178,16 +178,16 @@ function takeControl() {
 		pongBallYPosition = 500;
 		playerScore++;
 		playScore.innerText = playerScore;
-		pongBallXVelocity = -8;
-		pongBallYVelocity = -8;
+		pongBallXVelocity = -Math.random() * 15;
+		pongBallYVelocity = -Math.random() * 2;
 	}
 	if (pongBallXPosition < -10) {
 		pongBallXPosition = 700;
 		pongBallYPosition = 500;
 		computerScore++;
 		compScore.innerText = computerScore;
-		pongBallXVelocity = 8;
-		pongBallYVelocity = 8;
+		pongBallXVelocity = Math.random() * 15;
+		pongBallYVelocity = Math.random() * 2;
 	}
 	// Make the ball bounce off player Paddle
 	if (
